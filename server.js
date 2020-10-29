@@ -23,7 +23,7 @@ mongoose.connect(MONGODB_URI ,    {
     useUnifiedTopology: true,
     useFindAndModify: false,
     useCreateIndex: true,
-  },);
+  });
 // Error / success
 db.on('error', (err) => console.log(err.message + ' is Mongod not running?'));
 db.on('connected', () => console.log('mongo connected: ', MONGODB_URI));
