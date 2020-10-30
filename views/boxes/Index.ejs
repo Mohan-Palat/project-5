@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+  </head>
+  <body>
+    <nav>
+    </nav>
+    <div class="container">
+
+<h1>Tool Boxes</h1>
+
+<ul>
+  <% boxes.forEach(box => { %>
+  <li><a href="/boxes/<%= box.id %>"><%= box.name %></a></li>
+  <% }) %>
+
+</ul>
+
+    </div>
+  </body>
+</html>

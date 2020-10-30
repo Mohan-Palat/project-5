@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+  </head>
+  <body>
+    <nav>
+    </nav>
+    <div class="container">
+
+<h1>Create a New ToolBox</h1>
+
+<form action="/boxes" method="POST">
+  <div class="form-group">
+    <label for="name">ToolBox Name</label>
+    <input type="text" class="form-control" id="name" name="name" />
+  </div>
+  <% tools.forEach(tool => { %>
+  <input type="checkbox" id="<%= tool.name %>" name="tools" value="<%= tool.id %>"/>
+  <label for="<%= tool.name %>"><%= tool.name %></label><br/>  
+
+  <h6><a href="<%= tool.whereToBuy %>" target="_blank"><img src="<%= tool.picture %>" alt="<%= tool.name %>" width="100">Where to BUY</a></h6>
+
+  <% })%>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</div>
+</body>
+</html>
