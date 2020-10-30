@@ -8,41 +8,63 @@ router.get('/new', async (req, res) => {
 //   res.send(allTools)
   res.render('boxes/new.ejs', { tools: allTools });
 });
-
+//SHOW Route
 router.get('/:id', async (req, res) => {
-  // console.log('in Movies SHOW route')
+    console.log(req.body)
   let tools = await Tool.find();
   let box = await Box.findById(req.params.id).populate('tools');
-  res.render('tools/show.ejs', { box, tools });
+  res.render('boxes/show.ejs', { box, tools });
 });
 
-// router.put('/:movieId/actors', async (req, res) => {
-//   console.log('in Put route')
-//   let foundMovie = await Movie.findByIdAndUpdate(
-//     req.params.movieId,
+
+router.put('/:boxId/tools', async (req, res) => {
+    console.log('in Put route')
+    console.log(req.body)
+    let foundBox = await Box.findByIdAndUpdate(
+      req.params.boxId,
+      {
+        $push: {
+      tools: req.body.tools,
+        },
+      },
+      { new: true, upsert: true }
+    );
+    console.log(foundBox);
+    res.redirect(`/boxes/${foundBox.id}`);
+  });
+
+//  router.put('/:boxId/tools', async (req, res) => {
+//      console.log('in PUT')
+//    console.log(req.body)
+// //    console.log(`PUT route data - ${req.body}`)
+// });
+
+
+// router.put('/:boxId/tools', async (req, res) => {
+//   console.log(`PUT route data - ${req.body}`)
+//   let foundBox = await Box.findByIdAndUpdate(
+//     req.params.boxId,
 //     {
 //       $push: {
-// 	actors: req.body.actors,
+// 	tools: req.body.tools,
 //       },
 //     },
 //     { new: true, upsert: true }
 //   );
-//   console.log(foundMovie);
-//   res.redirect(`/movies/${foundMovie.id}`);
+//   console.log(foundBox);
+//   res.redirect(`/boxes/${foundBox.id}`);
 // });
 
 
-// SEND ALL ACTORS FOR ALL MOVIES
+// INDEX
 router.get('/', async (req, res) => {
-  // console.log('in GET 36 route')
     let boxes = await Box.find().populate('tools');
-  
     console.log(`found and populated all boxes: ${boxes}`);
     res.render('boxes/index.ejs', { boxes: boxes });
   });
 
 router.post('/', async (req, res) => {
-  res.send(req.body)
+//   res.send(req.body)
   let box = await Box.create(req.body);
   res.redirect(`/boxes/${box.id}`);
 });

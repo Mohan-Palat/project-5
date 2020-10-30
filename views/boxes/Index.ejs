@@ -12,6 +12,7 @@
 <ul>
   <% boxes.forEach(box => { %>
   <li><a href="/boxes/<%= box.id %>"><%= box.name %></a></li>
+  <p><%= box.useType %></p>
   <% }) %>
 
 </ul>

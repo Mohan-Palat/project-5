@@ -13,6 +13,9 @@
   <div class="form-group">
     <label for="name">ToolBox Name</label>
     <input type="text" class="form-control" id="name" name="name" />
+
+    <label for="useType">Buyer Category</label>
+    <input type="text" class="form-control" id="useType" name="useType" />
   </div>
   <% tools.forEach(tool => { %>
   <input type="checkbox" id="<%= tool.name %>" name="tools" value="<%= tool.id %>"/>

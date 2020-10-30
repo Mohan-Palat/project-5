@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+  </head>
+  <body>
+    <nav>
+    </nav>
+    <div class="container">
+
+<h1><%= box.name %> - Toolbox Details</h1>
+
+<h4>ToolBoxes</h4>
+<ul>
+  <% box.tools.forEach(box => { %>
+  <li><%= box.name %> <% }) %></li>
+</ul>
+
+<h4>Add Tool</h4>
+<form action="/boxes/<%= box.id %>/tools?_method=PUT" method="POST">
+  <% tools.forEach(tool => { %>
+  <input type="checkbox" name="tools" value="<%= tool.id %>" />
+  <label for="<%= tool.name %>"><%= tool.name %></label><br />
+  <% })%>
+  <input type="submit" value="Add Tools" />
+</form>
+
+</div>
+</body>
+</html>
