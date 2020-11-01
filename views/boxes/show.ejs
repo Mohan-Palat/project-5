@@ -7,15 +7,16 @@
     </nav>
     <div class="container">
 
-<h1><%= box.name %> - Toolbox Details</h1>
+<h1><%= box.name %></h1>
 
-<h4>ToolBoxes</h4>
+<h4>Tools in toolbox</h4>
 <ul>
   <% box.tools.forEach(box => { %>
   <li><%= box.name %> <% }) %></li>
+  <a href="/boxes/">Back to ToolBoxes</a>
 </ul>
 
-<h4>Add Tool</h4>
+<h4>Choose a new tool to add</h4>
 <form action="/boxes/<%= box.id %>/tools?_method=PUT" method="POST">
   <% tools.forEach(tool => { %>
   <input type="checkbox" name="tools" value="<%= tool.id %>" />

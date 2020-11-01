@@ -47,8 +47,8 @@ app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
 const boxesController = require('./controllers/boxesController.js')
 app.use('/boxes', boxesController)
 
-// const toolsController = require('./controllers/toolsController.js')
-// app.use('/tools', toolsController)
+const toolsController = require('./controllers/toolsController.js')
+app.use('/tools', toolsController)
 
 //___________________
 //localhost:3000

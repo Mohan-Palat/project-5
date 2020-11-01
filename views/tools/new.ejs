@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+
+  </head>
+  <body>
+    <nav>
+
+    </nav>
+    <div class="container">
+
+<h1>Add a New Tool</h1>
+<form action="/tools" method="POST">
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" class="form-control" id="name" name="name" />
+  </div><br/>
+  <div class="form-group">
+    <label for="picture">Picture link</label>
+    <input type="text" class="form-control" id="picture" name="picture" />
+  </div><br/>
+  <div class="form-group">
+    <label for="whereToBuy">Where to purchase link</label>
+    <input type="text" class="form-control" id="whereToBuy" name="whereToBuy" />
+  </div><br/>
+  <div class="form-group">
+    <label for="recommended">Recommended</label>
+    <input type="checkbox" name="recommended" id="recommended" />
+  </div><br/>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</div>
+</body>
+</html>

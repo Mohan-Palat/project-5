@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/app.css">
+    <title>Tools Edit Path</title>
+</head>
+<body>
+    <h1> Tools Edit Path </h1>
+    <form action="/tools/<%= tool._id %>?_method=PUT" method="POST">
+        <label for="name">Tool Name</label>
+        <input type="text" name="name" id="name" value=" <%= tool.name %> " /> <br/> <br/>
+
+        <label for="recommended">Tool Recommended</label>
+        <input type="checkbox" name="recommended" id="recommended"
+         <% if (tool.recommended) { %> checked <% } %> />  <br/> <br/>
+         
+        <label for="whereToBuy"><a href="<%= tool.whereToBuy %>" target="_blank">Where to purchase link</a></label>
+        <input type="text" class="form-control" id="whereToBuy" name="whereToBuy" value=" <%= tool.whereToBuy %> "/>
+        <br/><br/>
+
+        <label for="picture"><a href="<%= tool.picture %>" target="_blank">Picture link</a></label>
+        <input type="text" class="form-control" id="picture" name="picture" value=" <%= tool.picture %> "/>
+        <br/>
+
+        <h6><img src="<%= tool.picture %>" alt="<%= tool.name %>" width="100"></h6>
+
+        <input type="submit" value="Update Tool information" /> </br></br>
+
+        <a href="/tools">Back to Tools</a>
+    
+        </form>
+</body>
+</html>

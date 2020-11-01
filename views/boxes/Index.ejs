@@ -13,9 +13,16 @@
   <% boxes.forEach(box => { %>
   <li><a href="/boxes/<%= box.id %>"><%= box.name %></a></li>
   <p><%= box.useType %></p>
+  
+  <form action="/boxes/<%= box.id %>?_method=DELETE" method="POST">
+    <button>Delete Toolbox</button>
+  </form>
+  
   <% }) %>
 
 </ul>
+
+<a href="/boxes/new/">Add New ToolBox</a>
 
     </div>
   </body>

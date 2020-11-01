@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tools Index</title>
+</head>
+<body>
+    <h1> Tools Index </h1>
+    <ul>
+        <% for (let i = 0; i < tools.length; i++) { %>
+        <li>
+            <a href="/tools/<%= tools[i].id %>"><%= tools[i].name %></a>
+
+        </li>
+        
+        <a href="/tools/<%= tools[i].id %>/edit">edit</a>
+        
+
+    <form action="/tools/<%= tools[i].id %>?_method=DELETE" method="POST">
+        <button>Delete</button>
+      </form>
+      <% } %>
+    </ul>
+    
+    <a href="/tools/new">Create New Log Entry</a>
+
+
+    
+</body>
+</html>

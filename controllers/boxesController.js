@@ -8,6 +8,23 @@ router.get('/new', async (req, res) => {
 //   res.send(allTools)
   res.render('boxes/new.ejs', { tools: allTools });
 });
+
+
+// INDEX
+router.get('/', async (req, res) => {
+    let boxes = await Box.find().populate('tools');
+    console.log(`found and populated all boxes: ${boxes}`);
+    res.render('boxes/index.ejs', { boxes: boxes });
+  });
+
+  
+router.post('/', async (req, res) => {
+    //   res.send(req.body)
+      let box = await Box.create(req.body);
+      res.redirect(`/boxes/${box.id}`);
+    });
+
+
 //SHOW Route
 router.get('/:id', async (req, res) => {
     console.log(req.body)
@@ -16,6 +33,17 @@ router.get('/:id', async (req, res) => {
   res.render('boxes/show.ejs', { box, tools });
 });
 
+
+  // DELETE
+  router.delete('/:id', async (req, res) => {
+      res.send(req.body)
+    //   console.log('hitting delete')
+    //   res.redirect('boxes/')
+    //  let boxAwait = await Box.findByIdAndRemove(req.params.id, (error) => {
+    //  res.redirect('boxes/');
+    // console.log(error)
+    // });
+  });
 
 router.put('/:boxId/tools', async (req, res) => {
     console.log('in Put route')
@@ -56,17 +84,6 @@ router.put('/:boxId/tools', async (req, res) => {
 // });
 
 
-// INDEX
-router.get('/', async (req, res) => {
-    let boxes = await Box.find().populate('tools');
-    console.log(`found and populated all boxes: ${boxes}`);
-    res.render('boxes/index.ejs', { boxes: boxes });
-  });
 
-router.post('/', async (req, res) => {
-//   res.send(req.body)
-  let box = await Box.create(req.body);
-  res.redirect(`/boxes/${box.id}`);
-});
 
 module.exports = router;
