@@ -19,20 +19,13 @@
     
      </header>
 
+    <h3>Tool Name: <%= tool.name %> </h3>
+                <div>
+                    <a href="<%= tool.whereToBuy %>" target="_blank">Where to BUY</a>
+                </div>
+                <div style="width:500px; height:500px;"> 
+                    <img src="<%= tool.picture %>" style="max-height:100%; max-width:100%"/>
+                </div>
 
-    <!-- <h1> Tools Show Path </h1> -->
-    <h4>Tool Name: <%= tool.name %> </h4>
-
-    <h6><a href="<%= tool.whereToBuy %>" target="_blank"><img src="<%= tool.picture %>" alt="<%= tool.name %>" width="100">Where to BUY</a></h6>
-    
-    <p><% if (tool.recommended) { %>
-        This tool was recommended by the person that added it!
-    <% } else { %>
-        This tool was NOT recommended by the person that added it.
-    <% } %>
-    </p>
-
-
-    <a href="/tools">Back to Tools</a>
-<!-- </body>
-</html> -->
+</body>
+</html>

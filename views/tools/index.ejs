@@ -20,30 +20,12 @@
     </div>
     
      </header>
-    <h1> Tools Index </h1>
-    <ul>
-        <% for (let i = 0; i < tools.length; i++) { %>
-        <li>
-            <a href="/tools/<%= tools[i].id %>"><%= tools[i].name %></a>
-
-        </li>
-        
-        <a href="/tools/<%= tools[i].id %>/edit">edit</a>
-        
-
-    <form action="/tools/<%= tools[i].id %>?_method=DELETE" method="POST">
-        <button>Delete</button>
-      </form>
-      <% } %>
-    </ul>
-
-    <!-- ******* NEW -->
-    <table class="table table-striped table-border table-hover" style="width:100%">
+        <table class="table table-striped table-border table-hover" style="width:100%">
         <tr>
           <th>ToolBox Name</th>
           <th>Picture </th>
           <th>Edit </th>
-          <th>Get Rid of this Toolbox</th>
+          <th>Remove this Tool</th>
         </tr>
         <% for (let i = 0; i < tools.length; i++) { %>
             <tr>

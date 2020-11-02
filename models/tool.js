@@ -7,7 +7,7 @@ const toolSchema = new mongoose.Schema({
   },
   picture: {
     type: String,  
-    default: '',
+    required: true,
   },
   whereToBuy: {
     type: String,  
