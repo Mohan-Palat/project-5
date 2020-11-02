@@ -6,8 +6,21 @@
     <link rel="stylesheet" href="/css/app.css">
     <title>Tools Show Path</title>
 </head>
-<body>
-    <h1> Tools Show Path </h1>
+<body id="toolShowBG">
+    <header>
+
+        <h1>Tool information</h1>
+    
+    <div id=main-menu>
+        <div class="nav-item"><a class="nav-link" href="/tools/new">Add New Tool</a></div>
+        <div class="nav-item"><a class="nav-link" href="/boxes/home">Home</a></div>
+        <div class="nav-item"><a class="nav-link" href="/tools">Back to Tools</a></div>
+    </div>
+    
+     </header>
+
+
+    <!-- <h1> Tools Show Path </h1> -->
     <h4>Tool Name: <%= tool.name %> </h4>
 
     <h6><a href="<%= tool.whereToBuy %>" target="_blank"><img src="<%= tool.picture %>" alt="<%= tool.name %>" width="100">Where to BUY</a></h6>

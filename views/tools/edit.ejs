@@ -6,8 +6,20 @@
     <link rel="stylesheet" href="/css/app.css">
     <title>Tools Edit Path</title>
 </head>
-<body>
-    <h1> Tools Edit Path </h1>
+<body id="toolEditBG">
+    <header>
+
+        <h1>Update Tool information</h1>
+    
+    <div id=main-menu>
+        <div class="nav-item"><a class="nav-link" href="/tools/new">Add New Tool</a></div>
+        <div class="nav-item"><a class="nav-link" href="/boxes/home">Home</a></div>
+        <div class="nav-item"><a class="nav-link" href="/tools">Back to Tools</a></div>
+    </div>
+    
+     </header>
+
+
     <form action="/tools/<%= tool._id %>?_method=PUT" method="POST">
         <label for="name">Tool Name</label>
         <input type="text" name="name" id="name" value=" <%= tool.name %> " /> <br/> <br/>

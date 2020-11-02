@@ -53,8 +53,15 @@ app.use('/tools', toolsController)
 //___________________
 //localhost:3000
 app.get('/' , (req, res) => {
-  res.send('Hello World!');
+  res.send('Welcome Home!');
+//   res.redirect('/home.ejs');
 });
+
+// router.get('/home', async (req, res) => {
+//     res.render('/home.ejs');
+//   });
+
+
 //___________________
 //Listener
 //___________________

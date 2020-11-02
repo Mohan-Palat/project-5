@@ -3,6 +3,10 @@ const Box = require('../models/box');
 const Tool = require('../models/tool');
 
 
+router.get('/home', async (req, res) => {
+  res.render('boxes/home.ejs');
+});
+
 router.get('/new', async (req, res) => {
   let allTools = await Tool.find({});
 //   res.send(allTools)
@@ -17,10 +21,21 @@ router.get('/', async (req, res) => {
     res.render('boxes/index.ejs', { boxes: boxes });
   });
 
-  
+
+// router.post('/', async (req, res) => {
+//     //   res.send(req.body)
+//       let box = await Box.create(req.body);
+//       res.redirect(`/boxes/${box.id}`);
+//     });
+
 router.post('/', async (req, res) => {
     //   res.send(req.body)
-      let box = await Box.create(req.body);
+      let box = await Box.create(req.body, (error, createdBox) => {
+        if (error) {
+            console.log(error)
+            res.send('<a href="/boxes/new">ToolBox not created - check required fields and Try Again</a>')
+          } 
+    });
       res.redirect(`/boxes/${box.id}`);
     });
 
@@ -36,13 +51,14 @@ router.get('/:id', async (req, res) => {
 
   // DELETE
   router.delete('/:id', async (req, res) => {
-      res.send(req.body)
+      console.log(req.params.id)
     //   console.log('hitting delete')
     //   res.redirect('boxes/')
     //  let boxAwait = await Box.findByIdAndRemove(req.params.id, (error) => {
-    //  res.redirect('boxes/');
+     Box.findByIdAndRemove(req.params.id, (error) => {
+      res.redirect('/boxes');
     // console.log(error)
-    // });
+    });
   });
 
 router.put('/:boxId/tools', async (req, res) => {
@@ -60,30 +76,6 @@ router.put('/:boxId/tools', async (req, res) => {
     console.log(foundBox);
     res.redirect(`/boxes/${foundBox.id}`);
   });
-
-//  router.put('/:boxId/tools', async (req, res) => {
-//      console.log('in PUT')
-//    console.log(req.body)
-// //    console.log(`PUT route data - ${req.body}`)
-// });
-
-
-// router.put('/:boxId/tools', async (req, res) => {
-//   console.log(`PUT route data - ${req.body}`)
-//   let foundBox = await Box.findByIdAndUpdate(
-//     req.params.boxId,
-//     {
-//       $push: {
-// 	tools: req.body.tools,
-//       },
-//     },
-//     { new: true, upsert: true }
-//   );
-//   console.log(foundBox);
-//   res.redirect(`/boxes/${foundBox.id}`);
-// });
-
-
 
 
 module.exports = router;
