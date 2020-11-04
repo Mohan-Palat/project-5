@@ -59,8 +59,8 @@ app.use('/home', homeController)
 //___________________
 //localhost:3000
 app.get('/' , (req, res) => {
-  res.send('Welcome Home!');
-  // res.redirect('/home');
+  // res.send('Welcome Home!');
+  res.redirect('/home');
 });
 
 
