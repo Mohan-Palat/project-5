@@ -17,24 +17,32 @@ router.get('/', async (req, res) => {
     res.render('boxes/index.ejs', { boxes: boxes });
   });
 
+router.post('/', async (req, res) => {
+      //  let box = await Box.create(req.body, (error, createdBox) => {
+        try{
+          let box = await Box.create(req.body);
+          console.log(`ID value is ${box.id}`)
+          res.redirect(`/boxes/${box.id}`);
+      }
+      catch(error){
+          console.log(error)
+          res.send('<a href="/boxes/new">ToolBox not created - check - REQUIRED * - fields and Try Again</a>')
+      }
+      // console.log(`ID value is ${box.id}`)
+      // res.redirect(`/boxes/${box.id}`);
+    });
 
 // router.post('/', async (req, res) => {
-//     //   res.send(req.body)
-//       let box = await Box.create(req.body);
+//      let box = await Box.create(req.body);
+//     //  let box = await Box.create(req.body, (error, createdBox) => {
+//     //     if (error) {
+//     //         console.log(error)
+//     //         res.send('<a href="/boxes/new">ToolBox not created - check required fields and Try Again</a>')
+//     //       }
+//     // });
+//       console.log(`ID value is ${box.id}`)
 //       res.redirect(`/boxes/${box.id}`);
 //     });
-
-router.post('/', async (req, res) => {
-  // let box = await Box.create(req.body);
-     let box = await Box.create(req.body, (error, createdBox) => {
-        if (error) {
-            console.log(error)
-            res.send('<a href="/boxes/new">ToolBox not created - check required fields and Try Again</a>')
-          }
-    });
-      console.log(`ID value is ${box.id}`)
-      res.redirect(`/boxes/${box.id}`);
-    });
 
 
 //SHOW Route

@@ -8,11 +8,6 @@ router.get('/', async (req, res) => {
   res.render('home/home.ejs');
 });
 
-// About Page
-router.get('/about', async (req, res) => {
-  res.render('home/about.ejs');
-});
-
 // Buling a ToolBox Page
 router.get('/building', async (req, res) => {
   res.render('home/building.ejs');
