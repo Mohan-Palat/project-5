@@ -3,10 +3,6 @@ const Box = require('../models/box');
 const Tool = require('../models/tool');
 
 
-router.get('/home', async (req, res) => {
-  res.render('boxes/home.ejs');
-});
-
 router.get('/new', async (req, res) => {
   let allTools = await Tool.find({});
 //   res.send(allTools)
@@ -29,13 +25,14 @@ router.get('/', async (req, res) => {
 //     });
 
 router.post('/', async (req, res) => {
-    //   res.send(req.body)
-      let box = await Box.create(req.body, (error, createdBox) => {
+    //   res(req.body)
+     let box = await Box.create(req.body, (error, createdBox) => {
         if (error) {
             console.log(error)
             res.send('<a href="/boxes/new">ToolBox not created - check required fields and Try Again</a>')
           } 
     });
+      console.log(`ID value is ${box.id}`)
       res.redirect(`/boxes/${box.id}`);
     });
 

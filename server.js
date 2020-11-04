@@ -43,23 +43,25 @@ app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
 //___________________
 // Routes
 
-// Controllers
+// ToolBox pages controllers
 const boxesController = require('./controllers/boxesController.js')
 app.use('/boxes', boxesController)
 
+// Tools pages controllers
 const toolsController = require('./controllers/toolsController.js')
 app.use('/tools', toolsController)
+
+// Home Page navigation controllers - no functionality yet
+const homeController = require('./controllers/homeController.js')
+app.use('/home', homeController)
+
 
 //___________________
 //localhost:3000
 app.get('/' , (req, res) => {
   res.send('Welcome Home!');
-//   res.redirect('/home.ejs');
+  // res.redirect('/home');
 });
-
-// router.get('/home', async (req, res) => {
-//     res.render('/home.ejs');
-//   });
 
 
 //___________________
