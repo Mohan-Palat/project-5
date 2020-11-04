@@ -22,7 +22,14 @@
     <input type="text" class="form-control" id="name" name="name" />
 
     <label for="useType">Buyer Category <span> *</span></label>
-    <input type="text" class="form-control" id="useType" name="useType" />
+    <select class="form-control" id="useType" name="useType" default="Choose a Use Type">
+      <option value="none" selected disabled hidden>Select an Option</option>
+      <option value="HomeOwner">HomeOwner</option>
+      <option value="Enthusiast">Enthusiast</option>
+      <option value="Recreational">Recreational</option>
+      <option value="Professional">Professional</option>
+      </select> 
+    <!-- <input type="text" class="form-control" id="useType" name="useType" /> -->
   </div>
   <div class="container table-responsive">
     <h4>Tools</h4>

@@ -25,12 +25,12 @@ router.get('/', async (req, res) => {
 //     });
 
 router.post('/', async (req, res) => {
-    //   res(req.body)
+  // let box = await Box.create(req.body);
      let box = await Box.create(req.body, (error, createdBox) => {
         if (error) {
             console.log(error)
             res.send('<a href="/boxes/new">ToolBox not created - check required fields and Try Again</a>')
-          } 
+          }
     });
       console.log(`ID value is ${box.id}`)
       res.redirect(`/boxes/${box.id}`);
