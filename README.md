@@ -64,4 +64,4 @@ As a homeowner/DIYer I want the ability to see where to buy a listed tool so tha
 # Wire Diagram
 
 ![wireDiagramPage1](wireDiagramPage1.jpeg)
-![wireDiagramPage2](wireDiagramPage2.jpeg)
+
