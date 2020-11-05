@@ -6,7 +6,7 @@ const Tool = require('./models/tool.js');
 // const mongoURI = 'mongodb://localhost:27017/project2DB';
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/'+ 'project2DB';
 mongoose.connect(
-  mongoURI,
+  MONGODB_URI,
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
