@@ -1,14 +1,13 @@
 const router = require('express').Router();
-// No models being used yet for home page information so kept these commented
+// Used for counts on Homepage
 const Box = require('../models/box');
-// const Tool = require('../models/tool');
+
 
 // HOME Page
 router.get('/', async (req, res) => {
   let allBoxes = await Box.countDocuments({}) 
     console.log(`number of toolboxes is ${allBoxes}`)
     res.render('home/home.ejs', { allBoxes: allBoxes });
-  // res.render('home/home.ejs');
 });
 
 

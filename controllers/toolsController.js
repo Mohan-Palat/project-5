@@ -2,15 +2,12 @@ const router = require('express').Router();
 const Tool = require('../models/tool');
 
 router.get('/new', (req, res) => {
-    // res.send('tools new path');
     res.render('tools/new.ejs');
 });
 
 // INDEX 
 router.get('/', (req, res) => {
-    // res.send('Tools Index Route');
     Tool.find({}, (error, allTools) => {
-        // res.send(allTools)        
         res.render('tools/index.ejs', { tools: allTools });
     });
 });
@@ -23,7 +20,6 @@ router.post('/', (req, res) => {
         req.body.recommended = false;
     }   
 
-    // res.send(req.body);
     Tool.create(req.body, (error, createdTool) => {
         res.redirect('/tools');
     })
@@ -33,7 +29,6 @@ router.post('/', (req, res) => {
 // SHOW Route
 router.get('/:id', (req, res) => {
     Tool.findById(req.params.id, (error, gotTool) => {
-        // res.send(gotTool);
         res.render('tools/show.ejs', 
         { tool: gotTool});
     });
@@ -57,7 +52,6 @@ router.put('/:id', (req, res) => {
 
     Tool.findByIdAndUpdate(req.params.id, req.body, (error) => {
         res.redirect(`/tools/${req.params.id}`); 
-        // res.redirect('back');  Goes back to page action was initiated from
 
     } )
 
