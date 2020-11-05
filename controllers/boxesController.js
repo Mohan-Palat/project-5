@@ -4,7 +4,8 @@ const Tool = require('../models/tool');
 
 
 router.get('/new', async (req, res) => {
-  let allTools = await Tool.find({});
+  let allTools = await Tool.find({}).sort({name: 1});
+  // let allTools = await Tool.find({});
 //   res.send(allTools)
   res.render('boxes/new.ejs', { tools: allTools });
 });
@@ -12,7 +13,8 @@ router.get('/new', async (req, res) => {
 
 // INDEX
 router.get('/', async (req, res) => {
-    let boxes = await Box.find().populate('tools');
+    let boxes = await Box.find().populate('tools').sort({name: 1});
+    // let boxes = await Box.find().populate('tools');
     console.log(`found and populated all boxes: ${boxes}`);
     res.render('boxes/index.ejs', { boxes: boxes });
   });

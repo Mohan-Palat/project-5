@@ -6,7 +6,7 @@ router.get('/new', (req, res) => {
     res.render('tools/new.ejs');
 });
 
-// INDEX
+// INDEX 
 router.get('/', (req, res) => {
     // res.send('Tools Index Route');
     Tool.find({}, (error, allTools) => {
