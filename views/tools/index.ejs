@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToolBox Builder</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/app.css">
 
@@ -10,16 +11,17 @@
 </head>
 <body id="toolIndexBG">
     <header>
+   
+        <a href="/home"><h1>Tool Box Builders</h1></a>
+        <div id=main-menu>
+         <div class="nav-item"><a class="nav-link" href="/boxes">ToolBoxes</a></div>
+         <div class="nav-item"><a class="nav-link" href="/boxes/new">Add ToolBox</a></div>
+         <div class="nav-item"><a class="nav-link" href="/tools/new">Add Tool</a></div>
+        </div>
+      </header>
+     
+      <h2 class="pageListing">Tools</h2>
 
-        <h1>All Tools</h1>
-    
-    <div id=main-menu>
-        <div class="nav-item"><a class="nav-link" href="/tools/new">Add New Tool</a></div>
-        <div class="nav-item"><a class="nav-link" href="/home">Home</a></div>
-        <div class="nav-item"><a class="nav-link" href="/boxes">Back to ToolBoxes</a></div>
-    </div>
-    
-     </header>
         <table class="table table-striped table-border table-hover" style="width:100%">
         <tr>
           <th>ToolBox Name</th>
